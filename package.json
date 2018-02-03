@@ -1,0 +1,21 @@
+{
+  "name": "react-bookstore",
+  "version": "1.0.0",
+  "description": "exercise with react and API for fetching data",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "author": "@silvestrevivo",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.7.2",
+    "react": "^16.2.0",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1"
+  }
+}

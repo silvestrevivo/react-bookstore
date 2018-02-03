@@ -1,0 +1,14 @@
+.global{
+    padding-top: 10px;
+}
+
+ul {
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: minmax(200px, auto);
+    grid-gap: 15px;
+    li {
+        list-style-type: none;
+    }
+}
