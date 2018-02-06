@@ -1,45 +1,34 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-const Gallery = ({ datafetch }) => {
-    const gallery = datafetch.map((book, index) => {
-        console.log(book.volumeInfo);
-        let {
-            title,
-            subtitle,
-            publisher,
-            publishedDate,
-            description,
-            imageLinks,
-            infoLink
-        } = book.volumeInfo;
+const Gallery = ({ fetchdata }) => {
+
+    const books = fetchdata.map((book, index) => {
+        let { title, subtitle, publisher, publishedDate, description, imageLinks,
+            infoLink } = book.volumeInfo;
         return (
-            <li key={index}>
+            <div key={index} className="book">
                 <a href={infoLink} target="_blank">
-                    <h3>{title}</h3>
-                    <h5>{subtitle}</h5>
-                    <p>
-                        {publisher}, {publishedDate}
-                    </p>
+                    <h2>{title}</h2>
+                    <h3>{subtitle}</h3>
+                    <p>{publisher}, {publishedDate}</p>
+                    <img src={imageLinks !== undefined ? imageLinks.smallThumbnail : ''} alt="" />
+                    <p>{description}</p>
                 </a>
-                <img
-                    src={
-                        imageLinks !== undefined
-                            ? imageLinks.smallThumbnail
-                            : ''
-                    }
-                    alt="image-book"
-                />
-                <p>{description}</p>
-            </li>
+            </div>
         );
     });
 
     return (
-        <div>
-            <h3 className="text-center">gallery component</h3>
-            <ul>{gallery.slice(0, 6)}</ul>
+        <div className="gallery">
+            {books}
         </div>
     );
+
 };
+
+Gallery.propTypes = {
+    fetchdata: PropTypes.array
+}
 
 export default Gallery;
