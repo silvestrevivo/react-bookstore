@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
 import Gallery from './gallery';
 
-class Global extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            items: []
-        };
-    }
+class App extends Component {
+    state = {
+        items: []
+    };
 
     render() {
         return (
@@ -27,7 +24,7 @@ class Global extends Component {
                                 }
                             }}
                         />
-                        <InputGroup.Addon onClick={() => this.search()}>
+                        <InputGroup.Addon onClick={this.search}>
                             <Glyphicon glyph="search" />
                         </InputGroup.Addon>
                     </InputGroup>
@@ -37,7 +34,7 @@ class Global extends Component {
         );
     }
 
-    search() {
+    search = () => {
         const BASE_URL = 'https://www.googleapis.com/books/v1/volumes?q=';
         fetch(`${BASE_URL}${this.input.value}`, { method: 'GET' })
             .then(response => response.json())
@@ -45,7 +42,7 @@ class Global extends Component {
                 let { items } = json;
                 this.setState({ items });
             });
-    }
+    };
 }
 
-export default Global;
+export default App;
