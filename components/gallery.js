@@ -9,16 +9,26 @@ const Gallery = ({ datafetch }) => {
             publisher,
             publishedDate,
             description,
-            imageLinks
+            imageLinks,
+            infoLink
         } = book.volumeInfo;
         return (
-            <li key={index} className>
-                <h3>{title}</h3>
-                <h5>{subtitle}</h5>
-                <p>
-                    {publisher}, {publishedDate}
-                </p>
-                <img src={imageLinks.smallThumbnail} alt="image-book" />
+            <li key={index}>
+                <a href={infoLink} target="_blank">
+                    <h3>{title}</h3>
+                    <h5>{subtitle}</h5>
+                    <p>
+                        {publisher}, {publishedDate}
+                    </p>
+                </a>
+                <img
+                    src={
+                        imageLinks !== undefined
+                            ? imageLinks.smallThumbnail
+                            : ''
+                    }
+                    alt="image-book"
+                />
                 <p>{description}</p>
             </li>
         );
