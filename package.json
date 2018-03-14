@@ -1,7 +1,7 @@
 {
   "name": "react-bookstore",
   "version": "1.0.0",
-  "description": "exercise with react and API for fetching data",
+  "description": "exercise with react and Google book API for fetching data",
   "main": "index.html",
   "scripts": {
     "start": "parcel src/index.html",
@@ -46,13 +46,16 @@
     ]
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "classnames": "^2.2.5",
     "node-class": "^0.3.12",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "redux-promise": "^0.5.3"
   }
 }

@@ -1,6 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './components/app'
 import '../assets/sass/style.scss'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+import Home from './containers/home'
+import Book from './containers/book'
+
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
+ReactDOM.render(
+  <BrowserRouter>
+    <Switch>
+      <Route path="/" component={Home} exact />
+      <Route path="/book" component={Book} exact />
+    </Switch>
+  </BrowserRouter>,
+  document.getElementById('root'))
