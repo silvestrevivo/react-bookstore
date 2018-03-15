@@ -1,8 +1,72 @@
 ////// Base for the proyect itself //////
 body {
-  //font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif;
+  //font-family: 'Oswald', sans-serif;
   font-weight: 400;
   line-height: 1.7;
-  //color: $col-grey-dark;
-  //padding: 3rem;
+  background-color: $col-back-primary;
+}
+
+.container{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+//Home
+.body-home{
+  height: 100vh;
+  background-image: linear-gradient(to top,
+                    rgba($col-back-primary, 0.7),
+                    rgba($col-back-secondary, 0.7)),
+                     url('../img/quijote.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  &__pattern{
+    padding: 4rem 2rem;
+    height: 100%;
+    background-image: url('../img/pattern.png');
+    background-repeat: space;
+  }
+}
+
+.header{
+  display: flex;
+  align-items: flex-end;
+
+  &__logo{
+    width: 12rem;
+    height: auto;
+    align-self: center;
+  }
+
+  input {
+    margin-left: auto;
+    align-self: stretch;
+    width: 30%;
+    border: none;
+    border-bottom: 2px solid $col-primary;
+    background-color: transparent;
+    color: $white;
+    padding: 1rem 1.5rem;
+    font-size: 1.6rem;
+    font-weight: lighter;
+    &:focus{
+      outline: none;
+    }
+
+    &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: $grey1;
+        opacity: 1; /* Firefox */
+    }
+
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: $grey1;
+    }
+
+    &::-ms-input-placeholder { /* Microsoft Edge */
+        color: $grey1;
+      }
+    }
 }
