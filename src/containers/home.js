@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { searchBook } from '../actions'
-import BooksDisplay from '../components/booksdisplay'
+import { requestBook } from '../actions'
+import BooksDisplay from './booksdisplay'
 import Footer from '../components/footer'
 import logo from '../../assets/img/GooglePlayLogo.png'
 
@@ -13,7 +13,7 @@ class Home extends Component {
 
   handleKeyPress = (e) => {
     if (e.key === 'Enter' && this.state.value.length > 0) {
-      this.props.searchBook(this.state.value)
+      this.props.requestBook(this.state.value)
     }
   }
 
@@ -32,7 +32,7 @@ class Home extends Component {
                 onChange={event => this.setState({ value: event.target.value })}
                 onKeyPress={this.handleKeyPress} />
             </header>
-            <BooksDisplay bookList={this.props.bookList} />
+            <BooksDisplay />
           </div>
           <Footer />
         </div>
@@ -42,8 +42,7 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  searchBook: PropTypes.func,
-  bookList: PropTypes.array
+  requestBook: PropTypes.func
 }
 
-export default connect(null, { searchBook })(Home)
+export default connect(null, { requestBook })(Home)

@@ -1,13 +1,16 @@
-import axios from 'axios'
-export const SEARCH_BOOK = 'SEARCH_BOOK'
+export const REQUEST_BOOK = 'REQUEST_BOOK'
+export const RECIEVE_BOOK = 'RECIEVE_BOOK'
 
-const BASE_URL = 'https://www.googleapis.com/books/v1/volumes?q='
-
-export function searchBook (term) {
-  const request = axios.get(`${BASE_URL}${term}`)
-
+export function requestBook (term) {
   return {
-    type: SEARCH_BOOK,
+    type: REQUEST_BOOK,
+    payload: term
+  }
+}
+
+export function recieveBook (request) {
+  return {
+    type: RECIEVE_BOOK,
     payload: request
   }
 }
