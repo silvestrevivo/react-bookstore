@@ -1,22 +1,24 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import BookItem from '../components/bookItem'
 
 class BooksDisplay extends Component {
-  // state = {  }
+  state = { grid: true }
+
+  displayBooks = () => {
+    return this.props.bookList.map(book => {
+      return (
+        <BookItem key={book.id} book={book} />
+      )
+    })
+  }
+
   render () {
     console.log('props', this.props)
     return (
-      <div>
-        <ul>
-          {
-            this.props.bookList.map((item, index) => {
-              return (
-                <h2 key={index}>{item.volumeInfo.title}</h2>
-              )
-            })
-          }
-        </ul>
+      <div className="bookdisplay">
+        {this.displayBooks()}
       </div>
     )
   }

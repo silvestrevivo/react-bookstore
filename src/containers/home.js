@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { requestBook } from '../actions'
 import BooksDisplay from './booksdisplay'
 import Footer from '../components/footer'
-import logo from '../../assets/img/GooglePlayLogo.png'
+import Header from '../components/header'
 
 class Home extends Component {
   state = {
@@ -14,6 +14,9 @@ class Home extends Component {
   handleKeyPress = (e) => {
     if (e.key === 'Enter' && this.state.value.length > 0) {
       this.props.requestBook(this.state.value)
+      this.setState({
+        value: ''
+      })
     }
   }
 
@@ -22,16 +25,10 @@ class Home extends Component {
       <div className="body-home">
         <div className="body-home__pattern">
           <div className="container">
-            <header className="header">
-              <h1>Bookstore</h1>
-              <p className="subheader">powered by</p>
-              <img src={logo} alt="logo" className="header__logo" />
-              <input
-                type="text"
-                placeholder="Search book title.."
-                onChange={event => this.setState({ value: event.target.value })}
-                onKeyPress={this.handleKeyPress} />
-            </header>
+            <Header
+              value={this.state.value}
+              onKeyPress={this.handleKeyPress}
+              onChange={event => this.setState({ value: event.target.value })} />
             <BooksDisplay />
           </div>
           <Footer />
