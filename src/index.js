@@ -7,11 +7,32 @@ import Book from './containers/book'
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
+
+import reducers from './reducers'
+import rootSaga from './sagas'
+import logger from 'redux-logger'
+
+// create the saga middleware
+const sagaMiddleware = createSagaMiddleware()
+// mount it on the Store
+const store = createStore(
+  reducers,
+  applyMiddleware(sagaMiddleware, logger)
+  // logger pluging to follow redux on the console
+)
+
+// then run the saga
+sagaMiddleware.run(rootSaga)
+
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-      <Route path="/" component={Home} exact />
-      <Route path="/book" component={Book} exact />
-    </Switch>
-  </BrowserRouter>,
-  document.getElementById('root'))
+  <Provider store={store}>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/book" component={Book} exact />
+      </Switch>
+    </BrowserRouter>
+  </Provider>, document.getElementById('root'))
