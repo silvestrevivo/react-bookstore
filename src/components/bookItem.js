@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Card from '../components/card'
 
 const BookItem = ({ book }) => {
-  console.log(book)
+  // console.log(book)
   const {
     title,
     description,

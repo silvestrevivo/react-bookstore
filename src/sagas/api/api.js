@@ -7,6 +7,6 @@ export const fetchData = async (payload) => {
     const data = await response.data.items
     return data
   } catch (e) {
-    console.log(e)
+    console.log('error in API', e)
   }
 }

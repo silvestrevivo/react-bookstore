@@ -10,7 +10,8 @@ function * getBook ({ payload }) {
   try {
     const data = yield call(fetchData, payload)
     yield put(recieveBook(data))
+    // console.log('data', data)
   } catch (error) {
-    console.log(error)
+    console.log('error in saga', error)
   }
 }
