@@ -7,6 +7,6 @@ export default function (state = '', action) {
     case ERROR_NETWORK:
       return String(action.payload)
     default:
-      return state
+      return null
   }
 }

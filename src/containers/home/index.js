@@ -5,22 +5,36 @@ import { requestBook } from '../../actions'
 import BooksDisplay from './booksdisplay'
 import Footer from '../../components/footer'
 import Header from '../../components/header'
+import Spinner from '../../components/spinner'
 
 class Home extends Component {
   state = {
-    value: ''
+    value: '',
+    loading: false
   }
 
   handleKeyPress = (e) => {
     if (e.key === 'Enter' && this.state.value.length > 0) {
       this.props.requestBook(this.state.value)
       this.setState({
-        value: ''
+        value: '',
+        loading: true
       })
     }
   }
 
+  spinnerHelper = () => {
+    this.setState({ loading: false })
+  }
+
+  componentDidUpdate (nextProps, nextState) {
+    if ((this.props.bookList !== nextProps.bookList) && this.props.bookList.length > 0) {
+      this.spinnerHelper()
+    }
+  }
+
   render () {
+    console.log('props', this.props.bookList)
     return (
       <div className="body-home">
         <div className="body-home__pattern">
@@ -29,7 +43,7 @@ class Home extends Component {
               value={this.state.value}
               onKeyPress={this.handleKeyPress}
               onChange={event => this.setState({ value: event.target.value })} />
-            <BooksDisplay />
+            {this.state.loading ? <Spinner /> : <BooksDisplay />}
           </div>
           <Footer />
         </div>
@@ -39,7 +53,14 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  requestBook: PropTypes.func
+  requestBook: PropTypes.func,
+  bookList: PropTypes.array
 }
 
-export default connect(null, { requestBook })(Home)
+function mapStateToProps (state) {
+  return {
+    bookList: state.bookList
+  }
+}
+
+export default connect(mapStateToProps, { requestBook })(Home)

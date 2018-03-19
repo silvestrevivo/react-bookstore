@@ -1,0 +1,88 @@
+.spinner-container{
+  height: calc(100vh - 150px);
+  position: relative;
+}
+
+.spinner{
+	width:60px;
+  height:75px;
+  @include absCenter;
+}
+
+.spinnerG{
+	position:absolute;
+	background-color: transparent;
+	width:10px;
+	height:23px;
+	border-radius:8px 8px 0 0;
+	transform:scale(0.4);
+	animation-name:fadeG;
+	animation-duration:0.335s;
+	animation-iteration-count:infinite;
+  animation-direction:normal;
+
+  &__01{
+    left:0;
+    top:27px;
+    animation-delay:0.1247s;
+    transform:rotate(-90deg);
+  }
+
+  &__02{
+    left:8px;
+    top:10px;
+    animation-delay:0.168s;
+    transform:rotate(-45deg);
+  }
+
+  &__03{
+    left:25px;
+	  top:3px;
+	  animation-delay:0.2112s;
+	  transform:rotate(0deg);
+  }
+
+  &__04{
+    right:8px;
+    top:10px;
+    animation-delay:0.254s;
+    transform:rotate(45deg);
+  }
+
+  &__05{
+    right:0;
+    top:27px;
+    animation-delay:0.298s;
+    transform:rotate(90deg);
+  }
+
+  &__06{
+    right:8px;
+    bottom:7px;
+    animation-delay:0.335s;
+    transform:rotate(135deg);
+  }
+
+  &__07{
+    bottom:0;
+    left:25px;
+    animation-delay:0.378s;
+    transform:rotate(180deg);
+  }
+
+  &__08{
+    left:8px;
+    bottom:7px;
+    animation-delay:0.422s;
+    transform:rotate(-135deg);
+  }
+}
+
+@keyframes fadeG{
+	0%{
+		background-color:$col-primary;
+	}
+	100%{
+		background-color: transparent;
+	}
+}
