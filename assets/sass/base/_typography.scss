@@ -9,3 +9,9 @@ h1 {
   color: $col-primary;
   margin-left: 1rem;
 }
+
+h3{
+  color: $col-primary;
+  font-size: 3rem;
+  @include absCenter;
+}

@@ -6,6 +6,7 @@ import Aux from '../../hoc/aux'
 import BookItem from '../../components/bookItem'
 import Toggle from '../../components/toogle'
 import Pagination, { RetroPage, AddPage } from '../../components/pagination'
+import ErrorMessage from '../../components/errormessage'
 
 class BooksDisplay extends Component {
   state = {
@@ -44,7 +45,7 @@ class BooksDisplay extends Component {
             </div>
           </Aux> : null
         }
-        <h1>{this.props.errorBook}</h1>
+        {this.props.errorBook ? <ErrorMessage message={this.props.errorBook} /> : null}
       </div>
     )
   }
