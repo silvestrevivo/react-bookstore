@@ -1,9 +1,42 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const Pagination = () => {
+const Pagination = ({ children }) => {
   return (
-    <h1>Pagination</h1>
+    <div className="pagination">
+      {children}
+    </div>
   )
 }
 
+Pagination.propTypes = {
+  children: PropTypes.node
+}
+
+const RetroPage = ({ onClick, disabled }) => (
+  <button
+    className="retropage"
+    onClick={onClick}
+    disabled={disabled}> &lt;&lt; </button>
+)
+
+RetroPage.propTypes = {
+  onClick: PropTypes.func,
+  disabled: PropTypes.bool
+}
+
+const AddPage = ({ onClick, disabled }) => (
+  <button
+    className="addpage"
+    onClick={onClick}
+    disabled={disabled}> &gt;&gt; </button>
+)
+
+AddPage.propTypes = {
+  onClick: PropTypes.func,
+  disabled: PropTypes.bool
+}
+
 export default Pagination
+
+export { RetroPage, AddPage }

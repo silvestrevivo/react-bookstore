@@ -34,7 +34,7 @@ class Home extends Component {
   }
 
   render () {
-    console.log('props', this.props.errorBook)
+    // console.log('props', this.props.errorBook)
     return (
       <div className="body-home">
         <div className="body-home__pattern">

@@ -7,7 +7,7 @@ const Footer = () => {
       <p><a
         href="https://github.com/silvestrevivo/react-bookstore"
         target="_blank"
-        className="footer__link">View Code</a></p>
+        className="footer__link"><i className="fa fa-github" /> View Code</a></p>
     </footer>
   )
 }
