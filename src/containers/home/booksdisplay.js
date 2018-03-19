@@ -8,7 +8,7 @@ import Toggle from '../../components/toogle'
 import Pagination from '../../components/pagination'
 
 class BooksDisplay extends Component {
-  state = { grid: true }
+  state = { grid: false }
 
   displayBooks = () => {
     return this.props.bookList.map(book => {
@@ -20,13 +20,13 @@ class BooksDisplay extends Component {
 
   render () {
     // console.log('props', this.props)
-    console.log('state', this.state.grid)
+    // console.log('state', this.state.grid)
     return (
       <div className="bookdisplay">
         {this.props.bookList.length > 0
           ? <Aux>
             <div className="bookdisplay__control">
-              <Toggle onClick={() => this.setState({ grid: !this.state.grid })} />
+              <Toggle onChange={() => this.setState({ grid: !this.state.grid })} />
               <Pagination />
             </div>
             <div className={Classnames('bookdisplay__books', this.state.grid ? 'bookdisplay__books--grid' : 'bookdisplay__books--accordion')}>
@@ -34,18 +34,21 @@ class BooksDisplay extends Component {
             </div>
           </Aux> : null
         }
+        <h1>{this.props.errorBook}</h1>
       </div>
     )
   }
 }
 
 BooksDisplay.propTypes = {
-  bookList: PropTypes.array
+  bookList: PropTypes.array,
+  errorBook: PropTypes.string
 }
 
 function mapStateToProps (state) {
   return {
-    bookList: state
+    bookList: state.bookList,
+    errorBook: state.errorBook
   }
 }
 

@@ -1,10 +1,10 @@
-import { RECIEVE_BOOK } from '../actions'
+import { combineReducers } from 'redux'
+import bookList from './booklist'
+import errorBook from './errorbook'
 
-export default function bookList (state = [], action) {
-  switch (action.type) {
-    case RECIEVE_BOOK:
-      return action.payload
-    default:
-      return state
-  }
-}
+const rootReducer = combineReducers({
+  bookList,
+  errorBook
+})
+
+export default rootReducer

@@ -6,21 +6,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    > * {
-      border: 1px solid red;
-    }
+    // > * {
+    //   border: 1px solid red;
+    // }
   }
 
   &__books{
     &--grid {
-      border: 2px solid red;
+      //border: 2px solid red;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 300px);
       grid-gap: 2rem;
     }
 
-    &--accordion{
-      border: 2px solid blue;
-    }
+    // &--accordion{
+    //   border: 2px solid blue;
+    // }
   }
 }

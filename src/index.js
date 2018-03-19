@@ -11,7 +11,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
-import reducers from './reducers'
+import rootReducer from './reducers'
 import rootSaga from './sagas'
 import logger from 'redux-logger'
 
@@ -19,7 +19,7 @@ import logger from 'redux-logger'
 const sagaMiddleware = createSagaMiddleware()
 // mount it on the Store
 const store = createStore(
-  reducers,
+  rootReducer,
   applyMiddleware(sagaMiddleware, logger)
   // logger pluging to follow redux on the console
 )
