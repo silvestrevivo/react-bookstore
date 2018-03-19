@@ -1,4 +1,26 @@
 .bookdisplay{
-  //border: 1px solid red;
   margin-top: 4rem;
+
+  &__control{
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    > * {
+      border: 1px solid red;
+    }
+  }
+
+  &__books{
+    &--grid {
+      border: 2px solid red;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+    }
+
+    &--accordion{
+      border: 2px solid blue;
+    }
+  }
 }

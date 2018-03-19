@@ -12,13 +12,19 @@ body {
   margin: 0 auto;
 }
 
-//Home
+////////////////// Home //////////////////
 .body-home{
   height: 100vh;
-  background-image: linear-gradient(to top,
-                    rgba($col-back-primary, 0.7),
-                    rgba($col-back-secondary, 0.7)),
-                     url('../img/quijote.jpg');
+  // background-image: linear-gradient(to top,
+  //                   rgba($col-back-primary, 0.7),
+  //                   rgba($col-back-secondary, 0.7)),
+  //                    url('../img/quijote.jpg');
+  background-image: linear-gradient(to bottom,
+                    rgba($black, 1) 0%,
+                    rgba($white,0.4) 20%,
+                    rgba($black,0.9) 85%,
+                    rgba($black,1) 100%),
+                    url('../img/quijote.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -31,42 +37,4 @@ body {
   }
 }
 
-.header{
-  display: flex;
-  align-items: flex-end;
 
-  &__logo{
-    width: 12rem;
-    height: auto;
-    align-self: center;
-  }
-
-  input {
-    margin-left: auto;
-    align-self: stretch;
-    width: 30%;
-    border: none;
-    border-bottom: 2px solid $col-primary;
-    background-color: transparent;
-    color: $white;
-    padding: 1rem 1.5rem;
-    font-size: 1.6rem;
-    font-weight: lighter;
-    &:focus{
-      outline: none;
-    }
-
-    &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: $grey1;
-        opacity: 1; /* Firefox */
-    }
-
-    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-        color: $grey1;
-    }
-
-    &::-ms-input-placeholder { /* Microsoft Edge */
-        color: $grey1;
-      }
-    }
-}

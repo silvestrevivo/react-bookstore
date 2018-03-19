@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { requestBook } from '../actions'
+import { requestBook } from '../../actions'
 import BooksDisplay from './booksdisplay'
-import Footer from '../components/footer'
-import Header from '../components/header'
+import Footer from '../../components/footer'
+import Header from '../../components/header'
 
 class Home extends Component {
   state = {

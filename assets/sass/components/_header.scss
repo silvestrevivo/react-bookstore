@@ -1,0 +1,39 @@
+.header{
+  display: flex;
+  align-items: flex-end;
+
+  &__logo{
+    width: 12rem;
+    height: auto;
+    align-self: center;
+  }
+
+  &__input {
+    margin-left: auto;
+    align-self: stretch;
+    width: 30%;
+    border: none;
+    border-bottom: 2px solid $col-primary;
+    background-color: transparent;
+    color: $white;
+    padding: 1rem 1.5rem;
+    font-size: 1.6rem;
+    font-weight: lighter;
+    &:focus{
+      outline: none;
+    }
+
+    &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: $grey1;
+        opacity: 1; /* Firefox */
+    }
+
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: $grey1;
+    }
+
+    &::-ms-input-placeholder { /* Microsoft Edge */
+        color: $grey1;
+      }
+    }
+}

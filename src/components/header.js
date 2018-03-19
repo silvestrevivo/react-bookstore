@@ -9,6 +9,7 @@ const Header = ({ onChange, onKeyPress, value }) => {
       <p className="subheader">powered by</p>
       <img src={logo} alt="logo" className="header__logo" />
       <input
+        className="header__input"
         type="text"
         value={value}
         placeholder="Search book title.."
