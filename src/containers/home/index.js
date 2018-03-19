@@ -34,7 +34,7 @@ class Home extends Component {
   }
 
   render () {
-    console.log('props', this.props.bookList)
+    console.log('props', this.props.errorBook)
     return (
       <div className="body-home">
         <div className="body-home__pattern">
@@ -43,7 +43,7 @@ class Home extends Component {
               value={this.state.value}
               onKeyPress={this.handleKeyPress}
               onChange={event => this.setState({ value: event.target.value })} />
-            {this.state.loading ? <Spinner /> : <BooksDisplay />}
+            {this.state.loading && this.props.errorBook === null ? <Spinner /> : <BooksDisplay />}
           </div>
           <Footer />
         </div>
@@ -54,12 +54,14 @@ class Home extends Component {
 
 Home.propTypes = {
   requestBook: PropTypes.func,
-  bookList: PropTypes.array
+  bookList: PropTypes.array,
+  errorBook: PropTypes.string
 }
 
 function mapStateToProps (state) {
   return {
-    bookList: state.bookList
+    bookList: state.bookList,
+    errorBook: state.errorBook
   }
 }
 
