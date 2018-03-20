@@ -1,0 +1,19 @@
+.header-subpage{
+  display: flex;
+  align-items: center;
+
+  &__title{
+    flex: 1;
+  }
+
+  &__link{
+    color: $col-primary;
+    margin-left: 2rem;
+    font-size: 2.2rem;
+    border-bottom: 2px solid transparent;
+    transition: all .2s ease-in-out;
+    &:hover{
+      border-bottom: 2px solid $col-primary;
+    }
+  }
+}

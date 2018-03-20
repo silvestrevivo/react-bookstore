@@ -35,6 +35,28 @@ SubTitle.propTypes = {
   className: PropTypes.string
 }
 
+const Publisher = ({ children, className }) => (
+  <h4 className={Classnames('card__publisher', className)}>
+    {children}
+  </h4>
+)
+
+Publisher.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string
+}
+
+const Description = ({ description, className }) => (
+  <p className={Classnames('description', className)}>
+    {description}
+  </p>
+)
+
+Description.propTypes = {
+  description: PropTypes.string,
+  className: PropTypes.string
+}
+
 export default Card
 
-export { Title, SubTitle }
+export { Title, SubTitle, Publisher, Description }
