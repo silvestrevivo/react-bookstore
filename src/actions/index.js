@@ -4,6 +4,8 @@ export const FAIL_BOOK = 'FAIL_BOOK'
 export const ERROR_NETWORK = 'ERROR_NETWORK'
 
 export const SINGLE_BOOK = 'SINGLE_BOOK'
+export const ADD_FAVORITES = 'ADD_FAVORITES'
+export const REMOVE_FAVORITES = 'REMOVE_FAVORITES'
 
 export function requestBook (term) {
   return {
@@ -36,5 +38,19 @@ export function singleBook (book) {
   return {
     type: SINGLE_BOOK,
     payload: book
+  }
+}
+
+export function addFavorites (book) {
+  return {
+    type: ADD_FAVORITES,
+    payload: book
+  }
+}
+
+export function removeFavorites (id) {
+  return {
+    type: REMOVE_FAVORITES,
+    payload: id
   }
 }

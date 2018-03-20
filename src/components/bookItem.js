@@ -4,7 +4,7 @@ import Card, { Title, SubTitle, Publisher, Description } from '../components/car
 import Transition from 'react-transition-group/Transition'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { singleBook } from '../actions'
+import { singleBook, addFavorites } from '../actions'
 
 class BookItem extends Component {
   state = {
@@ -14,7 +14,8 @@ class BookItem extends Component {
 
   static propTypes = {
     book: PropTypes.object,
-    singleBook: PropTypes.func
+    singleBook: PropTypes.func,
+    addFavorites: PropTypes.func
   }
 
   componentDidMount () {
@@ -22,12 +23,12 @@ class BookItem extends Component {
     // change of state for animation
   }
 
-  addToFavorites = (id) => {
-    console.log(id)
+  addToFavorites = () => {
+    this.props.addFavorites(this.props.book)
     this.setState({ selected: !this.state.selected })
   }
 
-  toIndividualBook = (id) => {
+  toIndividualBook = () => {
     this.props.singleBook(this.props.book)
   }
 
@@ -53,7 +54,7 @@ class BookItem extends Component {
       entering: { opacity: 0 },
       entered: { opacity: 1 }
     }
-    console.log('props in bookitem', this.props)
+    // console.log('props in bookitem', this.props)
     return (
       <Transition in={this.state.visible} timeout={duration} mounOnEnter unmountOnExit>
         {(state) => (
@@ -75,11 +76,11 @@ class BookItem extends Component {
                 {pageCount ? <p>Pages: {pageCount}</p> : null}
                 {previewLink ? <a href={previewLink}>Link to Google</a> : null}
                 {language ? <p>{language}</p> : null} />
-                <Link to={`/book/${id}`} onClick={() => this.toIndividualBook(id)}>
+                <Link to={`/book/${id}`} onClick={() => this.toIndividualBook()}>
                   <h2 className="card__subtitle">See the details of this book</h2>
                 </Link>
               </div>
-              <div className="card__favorite" onClick={() => this.addToFavorites(id)}>
+              <div className="card__favorite" onClick={() => this.addToFavorites()}>
                 {this.state.selected ? <span>&#9733;</span> : <span>&#9734;</span>}
               </div>
             </Card>
@@ -90,4 +91,4 @@ class BookItem extends Component {
   }
 }
 
-export default connect(null, { singleBook })(BookItem)
+export default connect(null, { singleBook, addFavorites })(BookItem)

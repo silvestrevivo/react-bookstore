@@ -39,7 +39,7 @@ const SingleBookDisplay = ({ singleBook }) => {
 }
 
 SingleBookDisplay.propTypes = {
-  singleBook: PropTypes.obj
+  singleBook: PropTypes.func
 }
 
 export default SingleBookDisplay
