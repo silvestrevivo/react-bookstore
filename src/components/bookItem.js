@@ -17,6 +17,8 @@ class BookItem extends Component {
   render () {
     const {
       title,
+      subtitle,
+      publisher,
       description,
       language,
       pageCount,
@@ -31,6 +33,8 @@ class BookItem extends Component {
       entering: { opacity: 0 },
       entered: { opacity: 1 }
     }
+
+    console.log(this.props.book)
     return (
       <Transition in={this.state.visible} timeout={duration} mounOnEnter unmountOnExit>
         {(state) => (
@@ -41,6 +45,8 @@ class BookItem extends Component {
             <Card>
               {imageLinks ? <img src={imageLinks.thumbnail} alt="smallThumbnail" /> : null}
               {title ? <h2>{title}</h2> : null}
+              {subtitle ? <h3>{subtitle}</h3> : null}
+              {publisher ? <h4>{publisher}</h4> : null}
               {description ? <p>{description}</p> : null}
               {pageCount ? <p>Pages: {pageCount}</p> : null}
               {previewLink ? <a href={previewLink}>Link to Google</a> : null}
@@ -54,57 +60,3 @@ class BookItem extends Component {
 }
 
 export default BookItem
-
-// const BookItem = ({ book }) => {
-//   console.log(book.id.length)
-//   const duration = 1000
-//   const defaultStyle = {
-//     transition: `opacity ${duration}ms ease-in-out`,
-//     opacity: 0
-//   }
-//   const transitionStyles = {
-//     entering: { opacity: 0 },
-//     entered: { opacity: 1 }
-//   }
-
-//   const {
-//     title,
-//     description,
-//     language,
-//     pageCount,
-//     previewLink,
-//     imageLinks } = book.volumeInfo
-//   return (
-//     <Transition in={book.id.length === 0} timeout={duration}>
-//       {(state) => (
-//         <div style={{
-//           ...defaultStyle,
-//           ...transitionStyles[state]
-//         }}>
-//           <Card>
-//             {imageLinks ? <img src={imageLinks.thumbnail} alt="smallThumbnail" /> : null}
-//             {title ? <h2>{title}</h2> : null}
-//             {description ? <p>{description}</p> : null}
-//             {pageCount ? <p>Pages: {pageCount}</p> : null}
-//             {previewLink ? <a href={previewLink}>Link to Google</a> : null}
-//             {language ? <p>{language}</p> : null} />
-//           </Card>
-//         </div>
-//       )}
-//     </Transition>
-//     // <Card>
-//     //   {imageLinks ? <img src={imageLinks.thumbnail} alt="smallThumbnail" /> : null}
-//     //   {title ? <h2>{title}</h2> : null}
-//     //   {description ? <p>{description}</p> : null}
-//     //   {pageCount ? <p>Pages: {pageCount}</p> : null}
-//     //   {previewLink ? <a href={previewLink}>Link to Google</a> : null}
-//     //   {language ? <p>{language}</p> : null} />
-//     // </Card>
-//   )
-// }
-
-// BookItem.propTypes = {
-//   book: PropTypes.object
-// }
-
-// export default BookItem

@@ -1,51 +1,53 @@
 .toggle {
-  position: relative; width: 90px;
+  position: relative; width: 100px;
   -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 
   &__checkbox{
     display: none;
+    &:checked + .toggle__label .toggle__inner {
+      margin-left: 0;
+    }
+    &:checked + .toggle__label .toggle__switch {
+      right: 0px;
+      background-color: $grey1;
+    }
   }
 
   &__label{
     display: block; overflow: hidden; cursor: pointer;
-    //border: 2px solid #999999;
-    border-radius: 20px;
+    border: 2px solid #E3E3E3; border-radius: 0px;
   }
 
   &__inner{
     display: block; width: 200%; margin-left: -100%;
     transition: margin 0.3s ease-in 0s;
     &::before, &::after{
-      display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
-      font-size: 15px; color: white; font-family: 'Oswald', sans-serif; font-weight: bold;
+      display: block; float: left; width: 50%; height: 36px; padding: 0; line-height: 32px;
+      font-size: 16px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
       box-sizing: border-box;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+
+    &::before{
+      content: "";
+      padding-left: 10px;
+      background-color: #FFFFFF; color: #FFFFFF;
+    }
+
+    &:after{
+      content: "";
+      padding-right: 10px;
+      background-color: #FFFFFF; color: $grey2;
+      text-align: right;
     }
   }
-}
 
-.toggle__inner:before {
-  content: "GRID";
-  padding-left: 10px;
-  background-color: $col-primary; color: #FFFFFF;
-}
-.toggle__inner:after {
-  content: "OFF";
-  padding-right: 10px;
-  background-color: #EEEEEE; color: #999999;
-  text-align: right;
-}
-.toggle__switch {
-  display: block; width: 23px; margin: 3.5px;
-  background: #FFFFFF;
-  position: absolute; top: 0; bottom: 0;
-  right: 60px;
-  border: 1px solid #999999;
-  border-radius: 20px;
-  transition: all 0.3s ease-in 0s;
-}
-.toggle__checkbox:checked + .toggle__label .toggle__inner {
-  margin-left: 0;
-}
-.toggle__checkbox:checked + .toggle__label .toggle__switch {
-  right: 0px;
+  &__switch{
+    display: block; width: 36px; margin: 0px;
+    background: $col-primary;
+    position: absolute; top: 0; bottom: 0;
+    right: 64px;
+    transition: all 0.3s ease-in 0s;
+  }
 }

@@ -15,7 +15,7 @@ Pagination.propTypes = {
 
 const RetroPage = ({ onClick, disabled }) => (
   <button
-    className="retropage"
+    className="pagination__button"
     onClick={onClick}
     disabled={disabled}> &lt;&lt; </button>
 )
@@ -27,7 +27,7 @@ RetroPage.propTypes = {
 
 const AddPage = ({ onClick, disabled }) => (
   <button
-    className="addpage"
+    className="pagination__button"
     onClick={onClick}
     disabled={disabled}> &gt;&gt; </button>
 )
