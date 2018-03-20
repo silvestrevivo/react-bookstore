@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Card from '../components/card'
+import Card, { Title, SubTitle } from '../components/card'
 import Transition from 'react-transition-group/Transition'
 
 class BookItem extends Component {
@@ -41,10 +41,11 @@ class BookItem extends Component {
           <div style={{
             ...defaultStyle,
             ...transitionStyles[state]
-          }}>
+          }} className="book-item">
             <Card>
+              <Title>{title}</Title>
+              <SubTitle>{subtitle}</SubTitle>
               {imageLinks ? <img src={imageLinks.thumbnail} alt="smallThumbnail" /> : null}
-              {title ? <h2>{title}</h2> : null}
               {subtitle ? <h3>{subtitle}</h3> : null}
               {publisher ? <h4>{publisher}</h4> : null}
               {description ? <p>{description}</p> : null}

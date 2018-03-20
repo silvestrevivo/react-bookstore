@@ -11,7 +11,7 @@ import ErrorMessage from '../../components/errormessage'
 class BooksDisplay extends Component {
   state = {
     grid: false,
-    counter: 3
+    counter: 4
   }
 
   displayBooks = (n) => {
@@ -19,12 +19,12 @@ class BooksDisplay extends Component {
       return (
         <BookItem key={book.id} book={book} />
       )
-    }).slice(n - 3, n)
+    }).slice(n - 4, n)
   }
 
-  retroPage = () => this.setState({ counter: this.state.counter - 3 })
+  retroPage = () => this.setState({ counter: this.state.counter - 4 })
 
-  addPage = () => this.setState({ counter: this.state.counter + 3 })
+  addPage = () => this.setState({ counter: this.state.counter + 4 })
 
   render () {
     // console.log('props length', this.props.bookList.length)
@@ -36,7 +36,7 @@ class BooksDisplay extends Component {
             <div className="bookdisplay__control">
               <Toggle onChange={() => this.setState({ grid: !this.state.grid })} />
               <Pagination>
-                <RetroPage onClick={this.retroPage} disabled={this.state.counter === 3} />
+                <RetroPage onClick={this.retroPage} disabled={this.state.counter === 4} />
                 <AddPage onClick={this.addPage} disabled={this.state.counter === 12} />
               </Pagination>
             </div>

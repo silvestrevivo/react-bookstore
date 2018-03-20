@@ -1,7 +1,20 @@
 .card{
   background-color: rgba(0, 0, 0, 0.5);
-  //overflow: hidden;
+  height: 100%;
   @include clearfix;
+
+  &__title{
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    color: $col-primary;
+  }
+
+  &__subtitle{
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    color: $col-primary;
+    margin-bottom: .5rem;
+  }
 
   img{
     float: left;
@@ -16,5 +29,9 @@
 
   a {
     color: $col-primary;
+  }
+
+  .bookdisplay__books--accordion & {
+    padding: .5rem;
   }
 }
